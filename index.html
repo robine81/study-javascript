@@ -1,24 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <title>Javascript tutorial</title>
+    <!-- link to external JavaScript (with functions for example) SEE BELOW at the end for example addThese function which is declared in addFunction.js -->
+    <script language="javascript" src="addFunction.js"> </script>
+
     </head>
     <body>
     <script language="javascript" type="text/javascript">
         <!-- Hide Javascript
-            var samp_str = ("Here are some escaped characters \" \' \\");
-            document.write(samp_str+"<br />");
+        //Some examples on writing string values
+        var samp_str = ("Here are some escaped characters \" \' \\");
+        document.write(samp_str+"<br />");
         
-            var first_string = "First string";
-            var second_string = "Second string";
+        var first_string = "First string";
+        var second_string = "Second string";
         
-            var combined = first_string+second_string;
+        var combined = first_string + " "+ second_string;
         
-            document.write(first_string+"<br />"+second_string+"<br />"+combined+"<br />");
-            document.write("Length of string:"+first_string.length+"<br />");
-            document.write("Substring. Which is counting the string, 0 is the first character"+
+        document.write(first_string+"<br />"+second_string+"<br />"+combined+"<br />");
+        document.write("Length of string: "+first_string.length+"<br />");
+        document.write("Substring, which writes a part of string. Counting the string starting from 0. Substring: "+combined.substring(6,12)+"<br />");
+        document.write("Last string: "+combined.charAt(combined.length-1)+"<br />");
+        document.write("Index of T: "+combined.indexOf('t')+ "<br />");
+        
+        //Some examples on variables
+        var str_var = "5";
+        var num_var = 10;
+        
+        var total = num_var+str_var;
+        var multiply_total = num_var*str_var;
+        
+        document.write("5+10="+total+"<br />^^If one of the variables is a string, it assumes that all variables are strings"+"<br />");
+        document.write("5*10= "+multiply_total+"<br />^^Îf one of the variables is a number, it assumes that all variables are numbers <br />");
+        
+        //you can convert variable to be treated as number
+        var str_var = Number(str_var);
+        
+        //you can convert variable to be treated as string
+        var num_var2 = String(num_var);
+        
+        //floating numbers contain decimals as well
+        var float_var = 3.142233455454;
+        
+        //only prints out 5 decimals
+        var float_str = float_var.toFixed(5);
+        
+        //take away decimals, make it an integer
+        var float_to_integer = parseInt(float_var);
+        
+        //find out type of data variable
+        document.write("Datatype of float_str: "+typeof(float_str)+"<br />");
+        
+        //Booleans        
+        var rand_num1 = 5;
+        var rand_num2 = 10;
+        
+        document.write("Is 5 > 10: " + (rand_num1 > rand_num2) + "<br />");
+        document.write("Is 5 >= 10: " + (rand_num1 >= rand_num2) + "<br />");
+        document.write("Is 5 < 10: " + (rand_num1 < rand_num2) + "<br />");
+        document.write("Is 5 <= 10: " + (rand_num1 <= rand_num2) + "<br />");
+        document.write("Is 5 == 10: " + (rand_num1 == rand_num2) + "<br />");
+        document.write("Is 5 != 10: " + (rand_num1 != rand_num2) + "<br />");
+        
+        document.write("Is 5 < 10 and 5 != 10: " + ((rand_num1 < rand_num2)&&(rand_num1!=rand_num2)) + "<br />");
+        document.write("Is 5 > 10 or 5 != 10: " + ((rand_num1 > rand_num2)||(rand_num1!=rand_num2)) + "<br />");
+        document.write("Is 5 < 10 "+ !(rand_num1 < rand_num2) + "<br />");
+        
+        //Arrays
+        var vehicles = new Array("car", "truck", "van");
+        
+         document.write("The second item in the list is: "+ vehicles[1] + "<br />");
+        
+        //iteration of array
+        for (i in vehicles)
+        {
+             document.write("Value in array: " + vehicles[i] + "<br />");
+        }
+        
+        //conditional operators
+        //the following line is read like this: IF(the brackets) 5 is less than ten THEN (the ?-mark) assign "yes" OR (the :-mark) "no"  
+        var rand_var = (5 < 10) ? "yes" : "no";
+        
+        document.write("Is 5 < 10? "+rand_var+"<br />");
+        
+        if (5 > 5)
+        {
+            document.write("5 is larger than 10 <br />");
+        }
+        else if (5 < 5)
+        {
+            document.write("5 is less than 5 <br />");
+        }
+        else
+        {
+            document.write("5 equals 5 <br />");
+        }
+        
+        //switch (print a value depending on what the value is)
+        
+        var state = "Pennsylvania";
+        
+        switch(state)
+        {
+            case "California":
+                document.write("Is warmer than me <br />");
+                break;  //if this is the case, then leave from the switch statement
+                
+            case "Pennsylvania":
+                document.write("Same as me <br />");
+                break;
+                
+            default:
+                document.write("I don\'t know <br />"); 
+                break;
+        }
+        
+        //loops
+        //NOTE not all loops will work in this file as they are all "active" at once
+        var count = 1;
+        
+        while(count <=10)
+        {
+            if(count==6)
+                {
+                    //jump out of while loop completely
+                    break;
+                }
+            //only print out even numbers
+            if(count % 2)
+            {
+                count++;
+                //ignore rest of while statement and jump to the start of while loop again
+                continue;
+            }
+            document.write(count+"<br />");
+            count++;
+        }
+        
+        do
+        {
+            document.write(count + "<br />");
+            count--;
+                           
+        } while (count > 10);
+        
+        for(var count=0;count<=10;count++)
+        {
+            document.write(count + "<br />");
+        }        
+        
+        //the call to an external function addThese in addFunciont.js!
+        
+    document.write("5+20= "+addThese(5,20)+"<br />");
         -->
-        </script>
+        </script>        
         <noscript>
             <h3>This site requires JavaScript
             </h3>
